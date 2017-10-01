@@ -1,7 +1,7 @@
   export var NavSlides = [
     {
       description: "Tabs",
-      image: "assets/img/tabs.jpg",//"assets/img/tabs.jpg",
+      image: "assets/img/set-up/tabs.jpg",//"assets/img/tabs.jpg",
       nav: 'TabsNav'
     },
     {

@@ -20,7 +20,7 @@ export class SetUpPage {
     {
       title: "Welcome to the BusDev App!",
       description: "The <b>Development</b> for <b>Business Man</b>!.",
-      image: "assets/img/busdev.png",
+      image: "assets/img/set-up/busdev.png",
       setRadio: false,
       setButton: false,
       buttonText: "OK",
