@@ -1,0 +1,22 @@
+<ion-toolbar>
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="finish()">Done</button>
+    </ion-buttons>
+  </ion-toolbar>
+
+<ion-content>
+  <ion-slides>
+    <ion-slide *ngFor="let slide of slidesBD">
+      <img [src]="slide.image" />
+      <h2 [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+      <div *ngIf="slide.setButton">
+        <button ion-button large clear icon-end color="primary" (click)="actionButton()">
+          {{slide.buttonText}}
+          <ion-icon name="{{slide.buttonIcon}}"></ion-icon>
+        </button>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>
