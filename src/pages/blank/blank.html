@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div *ngIf="!isEdit">{{title}}</div>
+      <ion-input *ngIf="isEdit" value="{{title}}"></ion-input>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="!isEdit"><p>{{text}}</p></div>
+  <ion-input *ngIf="isEdit" value="{{text}}"></ion-input>
+  <button (click)="edit()">{{btn}}</button>
+</ion-content>
+
+

@@ -4,7 +4,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 
 // Import Navigation Pages
-import { HomePage } from '../home/home';
+import { CardsPage } from '../cards/cards';
 import { SliderPage } from '../slider/slider';
 
 @Component({
@@ -54,6 +54,9 @@ export class SetUpPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.slidesBD = this.slidesStart;
+    if (navParams.data==2) {
+      this.slidesBD = this.slideFinish;
+    }
   }
 
   ionViewDidLoad() {
@@ -61,12 +64,14 @@ export class SetUpPage {
   }
 
   ionViewWillEnter() {
+    // TODO!! -> check where the view is comming from
+    //this.setUpParams();
     this.slides.slideTo(0);
   }
 
   actionButton() {
     if (this.slidesBD == this.slidesStart) {
-      this.setUpParams();
+      this.navCtrl.push(SliderPage,0);
     } else if (this.slidesBD == this.slideFinish) {
       this.finish();
     }
@@ -74,10 +79,9 @@ export class SetUpPage {
 
   setUpParams() {
     this.slidesBD = this.slideFinish;
-    this.navCtrl.push(SliderPage,0);
   }
 
   finish() {
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(CardsPage);
   }
 }

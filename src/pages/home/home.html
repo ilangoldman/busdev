@@ -14,15 +14,21 @@
   <ion-fab top right edge>
     <button ion-fab mini><ion-icon name="add"></ion-icon></button>
     <ion-fab-list>
-      <button ion-fab *ngIf="isAdmin"><ion-icon name="add"></ion-icon></button>
-      <!-- <button (click)="logout()" ion-fab><ion-icon name="log-out"></ion-icon></button> -->
+      <div *ngFor="let btnFAB of FAB">
+        <button ion-fab  *ngIf="btnFAB.isHidden" (click)="fabAction(btnFAB.action)">
+          <ion-icon name="{{btnFAB.logo}}" ></ion-icon>
+        </button>
+      </div>
+
+
+      <!-- <button ion-fab *ngIf="isAdmin"><ion-icon name="add"></ion-icon></button>
       <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
       <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button> -->
     </ion-fab-list>
   </ion-fab>
 
-  <ion-card *ngFor="let card of cardsBD">
+  <ion-card *ngFor="let card of cards">
     <img src="{{card.img}}" />
     <div class="card-title">{{card.title}}</div>
     <div class="card-subtitle">{{card.subtitle}}</div>

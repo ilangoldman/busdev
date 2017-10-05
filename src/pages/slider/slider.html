@@ -1,18 +1,29 @@
+<ion-toolbar>
+  <ion-buttons start>
+    <ion-icon name="arrow-backward"></ion-icon>
+    <button ion-button color="primary" (click)="back()">Back</button>
+  </ion-buttons>
+</ion-toolbar>
+
 <ion-content>
-
-  <ion-slides>
-    
+  <ion-slides pager>
     <ion-slide *ngFor="let slide of slidesBD">
+
       <h1 [innerHTML]="this.title"></h1>
-      <img [src]="slide.image"/>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-11 class="parent">
+                <img [src]="slide.image"/>
+                <div class="child" offset-11>
+                    <button ion-button large clear icon-end color="primary" (click)="select()">
+                        <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       <p [innerHTML]="slide.description"></p>
-   
-      <button ion-button large clear icon-end color="primary" (click)="select()">
-          Select
-          <ion-icon name="ios-paper-plane"></ion-icon>
-      </button>
+  
     </ion-slide>
-
   </ion-slides>
-
 </ion-content>

@@ -5,6 +5,7 @@ import { Slides } from 'ionic-angular';
 
 import { NavSlides, ThemeSlides, MainPageSlides } from './BD';
 //import { ModalPage } from  '../modal/modal';
+import { SetUpPage } from  '../set-up/set-up';
 
 @Component({
   selector: 'page-slider',
@@ -38,21 +39,22 @@ export class SliderPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SliderPage');
+    this.slides.direction = 'vertical';
+    this.slides.loop = true;
+    this.slides.paginationType = 'progress';
+    this.slides.spaceBetween = 30;
   }
 
   select() {
-    console.log( this.slides.getActiveIndex() );
-    console.log( "type: " + this.type);
-    console.log( 'view.length: ' + this.view.length);
-    // if (this.slidesBD == MainPageSlides) {
-    //   this.navCtrl.push(ModalPage,this.slides.getActiveIndex());
-    // } else 
     if (++this.type == this.view.length) {
-      this.navCtrl.popToRoot();
+      this.navCtrl.setRoot(SetUpPage,2);
     } else {
       this.navCtrl.push(SliderPage,this.type);
     }
-    //this.appCtrl.getRootNav().push(SliderPage,i)
+  }
+
+  back() {
+    this.navCtrl.pop();
   }
 
 }

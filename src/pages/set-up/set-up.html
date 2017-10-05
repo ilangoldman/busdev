@@ -1,11 +1,11 @@
-<ion-toolbar>
-    <ion-buttons end>
-      <button ion-button color="primary" (click)="finish()">Done</button>
-    </ion-buttons>
-  </ion-toolbar>
+<!-- <ion-toolbar>
+  <ion-buttons end>
+    <button ion-button color="primary" (click)="finish()">Done</button>
+  </ion-buttons>
+</ion-toolbar> -->
 
 <ion-content>
-  <ion-slides>
+  <ion-slides pager>
     <ion-slide *ngFor="let slide of slidesBD">
       <img [src]="slide.image" />
       <h2 [innerHTML]="slide.title"></h2>
