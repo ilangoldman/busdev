@@ -9,6 +9,9 @@ import { CardsPage } from '../pages/cards/cards';
 import { SetUpPage } from '../pages/set-up/set-up';
 import { SliderPage } from '../pages/slider/slider';
 import { BlankPage } from '../pages/blank/blank';
+import { LoginPage } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { BlankPage } from '../pages/blank/blank';
     CardsPage,
     SetUpPage,
     SliderPage,
-    BlankPage
+    BlankPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -28,12 +32,15 @@ import { BlankPage } from '../pages/blank/blank';
     CardsPage,
     SetUpPage,
     SliderPage,
-    BlankPage
+    BlankPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    UserProvider
   ]
 })
 export class AppModule {}

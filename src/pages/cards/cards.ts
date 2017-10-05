@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
+
+import { UserProvider } from '../../providers/user/user';
+import { LoginPage } from '../login/login';
 
 // BD simulator
 import { cardsBD, fabBD } from './BD';
@@ -17,14 +20,15 @@ export class CardsPage {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      //public auth: AuthProvider
+      public user: UserProvider,
+      public actionSheetCtrl: ActionSheetController
   ) {
       //this.user = this.auth.getUser();
-      //if (this.user.displayName == 'Ilan Goldman') 
-      this.isAdmin = true;
+      //if (this.user.displayName == 'Ilan Goldman')
+      this.isAdmin = this.user.isAdmin;
       this.cards = cardsBD;
       this.FAB = fabBD;
-      this.FAB[0].isHidden = this.isAdmin;
+      this.FAB[2].notHidden = this.isAdmin;
       
   }
 
@@ -40,15 +44,57 @@ export class CardsPage {
   fabAction(action:string) {
     switch(action) {
       case "logout":
-        console.log("logging out...");
+        this.user.logout();
+        this.navCtrl.setRoot(LoginPage);
         break;
       case "settings":
         //this.navCtrl.push();
         break;
       case "add":
         //this.navCtrl.push();
+        
         break;        
     }
+  }
+
+  longPressCard(card,i) {
+    if (!this.isAdmin) return;
+    const actionSheet = this.actionSheetCtrl.create({
+      title: card.title,
+      buttons: [
+        {
+          text: 'Move',
+          handler: () => {
+            
+          }
+        },
+        {
+          text: 'Edit',
+          handler: () => {
+            console.log('Edit')
+          }
+        },
+        {
+          text: 'Delete',
+          icon: 'trash',
+          role: 'destructive',
+          handler: () => {
+            this.cards.splice(i,1);
+            console.log('Destructive clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
   }
 
 }

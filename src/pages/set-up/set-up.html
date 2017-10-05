@@ -5,8 +5,9 @@
 </ion-toolbar> -->
 
 <ion-content>
-  <ion-slides pager>
+  <ion-slides pager>  <!-- (ionSlideNextStart)="setUp()"> -->
     <ion-slide *ngFor="let slide of slidesBD">
+      
       <img [src]="slide.image" />
       <h2 [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
@@ -16,6 +17,10 @@
           <ion-icon name="{{slide.buttonIcon}}"></ion-icon>
         </button>
       </div>
+      <!-- <div *ngIf="slide.nav">
+        <page-slider></page-slider>
+      </div> -->
+  
     </ion-slide>
 
   </ion-slides>

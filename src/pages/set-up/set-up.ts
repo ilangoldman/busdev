@@ -6,6 +6,9 @@ import { Slides } from 'ionic-angular';
 // Import Navigation Pages
 import { CardsPage } from '../cards/cards';
 import { SliderPage } from '../slider/slider';
+import { UserProvider } from '../../providers/user/user';
+
+// import { Config } from '../global';
 
 @Component({
   selector: 'page-set-up',
@@ -25,7 +28,7 @@ export class SetUpPage {
       setButton: false,
       buttonText: "OK",
       buttonIcon: "arrow-forward",
-      shouldLockSwipeToNext: true
+      nav: false
     },
     {
       title: "Start Set Up!",
@@ -35,8 +38,18 @@ export class SetUpPage {
       setButton: true,
       buttonText: "Start",
       buttonIcon: "arrow-forward",
-      shouldLockSwipeToNext: false
-    }
+      nav: false
+    },
+    // {
+    //   title: "Nav",
+    //   description: "",
+    //   image: "",
+    //   setRadio: false,
+    //   setButton: false,
+    //   buttonText: "",
+    //   buttonIcon: "",
+    //   nav: true
+    // }
   ];
 
   slideFinish = [
@@ -48,11 +61,15 @@ export class SetUpPage {
       setButton: true,
       buttonText: "Finish",
       buttonIcon: "arrow-forward",
-      shouldLockSwipeToNext: false
+      nav: false
     }
   ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public user: UserProvider
+  ) {
     this.slidesBD = this.slidesStart;
     if (navParams.data==2) {
       this.slidesBD = this.slideFinish;
@@ -77,11 +94,14 @@ export class SetUpPage {
     }
   }
 
-  setUpParams() {
-    this.slidesBD = this.slideFinish;
-  }
+  // setUp() {
+  //   console.log(this.slides.getActiveIndex());
+  //   //setUpType = this.slides.getActiveIndex() - 2;
+  //   console.log(setUpType);
+  // }
 
   finish() {
+    this.user.setUpComplete = true;
     this.navCtrl.setRoot(CardsPage);
   }
 }

@@ -1,5 +1,10 @@
   export var NavSlides = [
     {
+      description: "In App Navigation",
+      image: "",
+      nav: 'AppNav'
+    },
+    {
       description: "Tabs",
       image: "assets/img/set-up/tabs.jpg",//"assets/img/tabs.jpg",
       nav: 'TabsNav'
@@ -8,11 +13,6 @@
       description: "Side Menu",
       image: "",// "assets/img/sidemenu2.png",
       nav: 'SideMenu'
-    },
-    {
-      description: "In App Navigation",
-      image: "",
-      nav: 'AppNav'
     }
   ];
 

@@ -7,17 +7,21 @@ import { ViewChild } from '@angular/core';
   templateUrl: 'blank.html',
 })
 export class BlankPage {
-  @ViewChild(Content) content: Content;
+  // @ViewChild(Content) content: Content;
 
   title:string;
+  content = [];
+
   text:string;
-  btn:string;
+  btn:any;
   isEdit:boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.title = "BUSDEV !!";
-    this.text = "HELLO WORLD!!";
-    this.btn = "OK ?";
+    this.content = this.navParams.get('content');
+
+    this.title = this.navParams.get('title');
+    this.text = this.navParams.get('text');
+    this.btn = this.navParams.get('btn');
   }
 
   ionViewDidLoad() {

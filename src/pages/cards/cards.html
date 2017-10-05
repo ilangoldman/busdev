@@ -15,14 +15,14 @@
       <button ion-fab mini><ion-icon name="add"></ion-icon></button>
       <ion-fab-list>
         <div *ngFor="let btnFAB of FAB">
-          <button ion-fab  *ngIf="btnFAB.isHidden" (click)="fabAction(btnFAB.action)">
+          <button ion-fab  *ngIf="btnFAB.notHidden" (click)="fabAction(btnFAB.action)">
             <ion-icon name="{{btnFAB.logo}}" ></ion-icon>
           </button>
         </div>
       </ion-fab-list>
     </ion-fab>
   
-    <ion-card *ngFor="let card of cards">
+    <ion-card *ngFor="let card of cards;let i = index;" (press)="longPressCard(card,i)">
       <img src="{{card.img}}" />
       <div class="card-title">{{card.title}}</div>
       <div class="card-subtitle">{{card.subtitle}}</div>

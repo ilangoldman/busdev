@@ -20,16 +20,16 @@ export var fabBD = [
     {
         logo:"log-out",
         action: "logout",
-        isHidden: false
+        notHidden: true
     },
     {
         logo:"settings",
         action: "setting",
-        isHidden: true
+        notHidden: true
     },
     {
         logo:"add",
         action: "add",
-        isHidden: true
+        notHidden: false
     }
 ];
