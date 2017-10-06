@@ -1,6 +1,6 @@
 <ion-toolbar>
-  <ion-buttons start>
-    <button ion-button color="primary" (click)="back()">
+  <ion-buttons left>
+    <button ion-button color="primary" (click)="back()" >
       <ion-icon name="arrow-back" color="primary"></ion-icon>
       &nbsp; Back
     </button>
@@ -14,7 +14,7 @@
       <h1 [innerHTML]="this.title"></h1>
       <ion-grid>
           <ion-row>
-            <ion-col col-11 class="parent">
+            <ion-col col-8 class="parent">
                 <img [src]="slide.image"/>
                 <div class="child" offset-11>
                     <button ion-button large clear icon-end color="primary" (click)="select()">

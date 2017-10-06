@@ -49,11 +49,15 @@ export class LoginPage {
   signInWithEmail() {
       this.auth.loginEmail(this.loginForm.value.email, this.loginForm.value.password)
           .then(() => {
-              this.navCtrl.setRoot(CardsPage);
+            if (!this.user.setUpComplete)
+            this.navCtrl.setRoot(SetUpPage);
+          else        
+            this.navCtrl.setRoot(CardsPage);
           }).catch((error) => {
             this.errorMessage = error;
             this.hasError = true;
           });
+        // console.log(this.user.name + " -> " + this.user.isAdmin + " || " + this.user.setUpComplete);
   }
 
   navigateTo(page) {

@@ -21,6 +21,7 @@ export class UserProvider {
         this.name = name;
         this.isAdmin = isAdmin;
         this.isLogged = true;
+        this.setUpComplete = false;
         resolve();
       } else
         reject('Fail to Login!');

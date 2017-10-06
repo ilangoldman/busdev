@@ -11,7 +11,7 @@
     },
     {
       description: "Side Menu",
-      image: "",// "assets/img/sidemenu2.png",
+      image: "assets/img/set-up/sidemenu.jpg",// "assets/img/sidemenu2.png",
       nav: 'SideMenu'
     }
   ];
@@ -32,12 +32,12 @@
   export var MainPageSlides = [
     {
       description: "Cards",
-      image: "",//"assets/img/cards.png",
+      image: "assets/img/set-up/cards.png",
       nav: 'Cards'
     },
     {
       description: "List",
-      image: "",//"assets/img/lists.jpg",
+      image: "assets/img/set-up/lists.jpg",
       nav: 'List'
     },
     {

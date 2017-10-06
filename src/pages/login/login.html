@@ -1,5 +1,6 @@
   <ion-content padding center>
-    <div class="title">Bem Vindo</div>
+    <img src="assets/icon/logo.jpg"/>
+    <br>
     <div padding>
       <form [formGroup]="loginForm" (ngSubmit)="signInWithEmail()">
         <ion-item>
@@ -7,7 +8,7 @@
         </ion-item>
         <ion-item>
           <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-        </ion-item>
+        </ion-item> <br> <br>
         <button ion-button block outline color="primary" class="signin-button"
                 type="submit">
           Log In
@@ -15,13 +16,11 @@
       </form>
       <!-- <p class="forgot-password" (click)="navigateTo('auth-password')">Forgot Password?</p> -->
       <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>
+      <br>
+      <button ion-button block (click)="logInWithFacebook()" color="default" class="facebook-button">
+        <ion-icon name="logo-facebook"></ion-icon> &nbsp; Log in with Facebook
+      </button>
     </div>
-    <div class="strike">
-      <span>OU</span>
-    </div>
-    <button ion-button block clear (click)="logInWithFacebook()" color="default" class="facebook-button">
-      <ion-icon name="logo-facebook"></ion-icon> Log in with Facebook
-    </button>
   </ion-content>
   
   <!-- <ion-footer>

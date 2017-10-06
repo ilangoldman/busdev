@@ -23,7 +23,9 @@ export class SetUpPage {
     {
       title: "Welcome to the BusDev App!",
       description: "The <b>Development</b> for <b>Business Man</b>!.",
-      image: "assets/img/set-up/busdev.png",
+      image: "assets/icon/logo.jpg",
+      icon: '',
+      iconColor: "",
       setRadio: false,
       setButton: false,
       buttonText: "OK",
@@ -34,22 +36,14 @@ export class SetUpPage {
       title: "Start Set Up!",
       description: "Let's do it",
       image: "",
+      iconColor: "",
+      icon: 'ios-construct',
       setRadio: true,
       setButton: true,
       buttonText: "Start",
       buttonIcon: "arrow-forward",
       nav: false
-    },
-    // {
-    //   title: "Nav",
-    //   description: "",
-    //   image: "",
-    //   setRadio: false,
-    //   setButton: false,
-    //   buttonText: "",
-    //   buttonIcon: "",
-    //   nav: true
-    // }
+    }
   ];
 
   slideFinish = [
@@ -57,6 +51,8 @@ export class SetUpPage {
       title: "Set Up Completed!",
       description: "Let's go to your App",
       image: "",
+      iconColor: "secondary",
+      icon: 'md-checkmark-circle-outline',
       setRadio: true,
       setButton: true,
       buttonText: "Finish",

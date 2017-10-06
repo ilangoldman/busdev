@@ -9,6 +9,7 @@
     <ion-slide *ngFor="let slide of slidesBD">
       
       <img [src]="slide.image" />
+      <ion-icon name="{{slide.icon}}" color="{{slide.iconColor}}" style="font-size: 90px;"></ion-icon>
       <h2 [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
       <div *ngIf="slide.setButton">
