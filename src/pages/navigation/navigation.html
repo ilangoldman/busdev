@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-item>
+      <ion-avatar item-start>
+        <img round src="assets/icon/logo.jpg">
+      </ion-avatar>
+      <ion-title class='{{this.titleClass}}' item-end>{{this.title}}</ion-title>
+    </ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab top right edge>
+    <button ion-fab mini (click)="navigateTo('settings')"><ion-icon name="settings"></ion-icon></button>
+  </ion-fab>
+</ion-content>

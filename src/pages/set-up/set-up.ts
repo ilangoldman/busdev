@@ -16,6 +16,7 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class SetUpPage {
   @ViewChild(Slides) slides: Slides;
+  @ViewChild("slide2") s2: Slides;
 
   slidesBD = [];
 
@@ -34,6 +35,30 @@ export class SetUpPage {
     },
     {
       title: "Start Set Up!",
+      description: "Let's do it",
+      image: "",
+      iconColor: "",
+      icon: 'ios-construct',
+      setRadio: true,
+      setButton: true,
+      buttonText: "Start",
+      buttonIcon: "arrow-forward",
+      nav: false
+    },
+    {
+      title: "Start Set Up!",
+      description: "Let's do it",
+      image: "",
+      iconColor: "",
+      icon: 'ios-construct',
+      setRadio: true,
+      setButton: true,
+      buttonText: "Start",
+      buttonIcon: "arrow-forward",
+      nav: true
+    },
+    {
+      title: "The END",
       description: "Let's do it",
       image: "",
       iconColor: "",
@@ -74,6 +99,7 @@ export class SetUpPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetUpPage');
+    this.s2.direction = 'vertical';
   }
 
   ionViewWillEnter() {

@@ -5,24 +5,62 @@
 </ion-toolbar> -->
 
 <ion-content>
-  <ion-slides pager>  <!-- (ionSlideNextStart)="setUp()"> -->
+  <ion-slides pager>   <!-- (ionSlideNextStart)="setUp()"> -->
     <ion-slide *ngFor="let slide of slidesBD">
-      
-      <img [src]="slide.image" />
-      <ion-icon name="{{slide.icon}}" color="{{slide.iconColor}}" style="font-size: 90px;"></ion-icon>
-      <h2 [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
-      <div *ngIf="slide.setButton">
-        <button ion-button large clear icon-end color="primary" (click)="actionButton()">
-          {{slide.buttonText}}
-          <ion-icon name="{{slide.buttonIcon}}"></ion-icon>
-        </button>
+      <div *ngIf="!slide.nav">
+        <img [src]="slide.image" />
+        <ion-icon name="{{slide.icon}}" color="{{slide.iconColor}}" style="font-size: 90px;"></ion-icon>
+        <h2 [innerHTML]="slide.title"></h2>
+        <p [innerHTML]="slide.description"></p>
+        <div *ngIf="slide.setButton">
+          <button ion-button large clear icon-end color="primary" (click)="actionButton()">
+            {{slide.buttonText}}
+            <ion-icon name="{{slide.buttonIcon}}"></ion-icon>
+          </button>
+        </div>
       </div>
-      <!-- <div *ngIf="slide.nav">
-        <page-slider></page-slider>
-      </div> -->
+      
+      <div *ngIf="slide.nav">
+        <h1>Choose Navigation</h1>
+        <ion-slides pager #slide2>
+          <h1>Choose Navigation</h1>
+          <ion-slide>
+            <h1>Tabs</h1> <br><br><br>
+          </ion-slide>
+          <ion-slide>
+            <h1>SideMenu</h1> <br><br><br>
+          </ion-slide>
+          <ion-slide>
+            <h1>In App</h1> <br><br><br>
+          </ion-slide>
+        </ion-slides>
+      </div>
   
     </ion-slide>
 
   </ion-slides>
+
+  <!-- <ion-slides #slide1 pager>
+    <ion-slide>
+      <h1>Hey</h1>
+    </ion-slide>
+    <ion-slide>
+      <ion-slides #slide2 pager>
+        <ion-slide>
+          <h1>Hello1</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Hello2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>Hello3</h1>
+        </ion-slide>
+      </ion-slides>
+    </ion-slide>
+    <ion-slide>
+      <h1>The END!</h1>
+    </ion-slide>
+  </ion-slides> -->
+
+
 </ion-content>

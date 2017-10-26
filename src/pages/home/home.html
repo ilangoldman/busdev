@@ -1,38 +1,18 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-item>
-      <!-- <ion-avatar item-start>
+      <ion-avatar item-start>
         <img round src={{this.user.photoURL}}>
-      </ion-avatar> -->
+      </ion-avatar>
       <ion-title item-end>BusDev</ion-title>
     </ion-item>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
+<nav-bar></nav-bar>
+<!-- <page-login></page-login> -->
 
 <ion-content class="card-background-page">
-  <ion-fab top right edge>
-    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list>
-      <div *ngFor="let btnFAB of FAB">
-        <button ion-fab  *ngIf="btnFAB.isHidden" (click)="fabAction(btnFAB.action)">
-          <ion-icon name="{{btnFAB.logo}}" ></ion-icon>
-        </button>
-      </div>
-
-
-      <!-- <button ion-fab *ngIf="isAdmin"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button> -->
-    </ion-fab-list>
-  </ion-fab>
-
-  <ion-card *ngFor="let card of cards">
-    <img src="{{card.img}}" />
-    <div class="card-title">{{card.title}}</div>
-    <div class="card-subtitle">{{card.subtitle}}</div>
-  </ion-card>
-
+  <h1>Home Page</h1>
 </ion-content>
     

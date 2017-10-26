@@ -39,7 +39,8 @@ export class SliderPage {
     public navParams: NavParams,
     public alertCtrl: AlertController
   ) {
-    var setUpType = navParams.data;
+    // var setUpType = navParams.data;
+    var setUpType = 1;
 
     console.log(setUpType);
     

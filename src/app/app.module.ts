@@ -10,8 +10,13 @@ import { SetUpPage } from '../pages/set-up/set-up';
 import { SliderPage } from '../pages/slider/slider';
 import { BlankPage } from '../pages/blank/blank';
 import { LoginPage } from '../pages/login/login';
+import { HomePage } from '../pages/home/home';
+import { SettingsPage } from '../pages/settings/settings';
+import { NavigationPage } from '../pages/navigation/navigation';
 import { AuthProvider } from '../providers/auth/auth';
 import { UserProvider } from '../providers/user/user';
+import { NavController } from 'ionic-angular';
+
 
 import { BD } from '../pages/cards/BD';
 
@@ -22,7 +27,10 @@ import { BD } from '../pages/cards/BD';
     SetUpPage,
     SliderPage,
     BlankPage,
-    LoginPage
+    LoginPage,
+    NavigationPage,
+    HomePage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,10 @@ import { BD } from '../pages/cards/BD';
     SetUpPage,
     SliderPage,
     BlankPage,
-    LoginPage
+    LoginPage,
+    NavigationPage,
+    SettingsPage,
+    HomePage
   ],
   providers: [
     StatusBar,

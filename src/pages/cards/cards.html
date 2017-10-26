@@ -1,4 +1,4 @@
-<ion-header>
+  <ion-header>
     <ion-navbar>
       <ion-item>
         <!-- <ion-avatar item-start>
@@ -22,7 +22,7 @@
       </ion-fab-list>
     </ion-fab>
   
-    <ion-card *ngFor="let card of cards;let i = index;" (press)="longPressCard(card,i)">
+    <ion-card reorder="true" *ngFor="let card of cards;let i = index;" (press)="longPressCard(card,i)">
       <img src="{{card.img}}" />
       <div class="card-title">{{card.title}}</div>
       <div class="card-subtitle">{{card.subtitle}}</div>

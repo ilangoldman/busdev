@@ -3,13 +3,21 @@ import { NavController, NavParams, Content,ViewController } from 'ionic-angular'
 import { ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
+import { NavigationPage } from '../navigation/navigation';
+
 @Component({
   selector: 'page-blank',
   templateUrl: 'blank.html',
 })
 export class BlankPage {
   // @ViewChild(Content) content: Content;
+  @ViewChild(NavigationPage) navbar: NavigationPage;
 
+  editNav() {
+    this.navbar.title = 'Settings';
+    this.navbar.titleClass = 'editor';
+  }
+  
   title:string;
   list = [];
 

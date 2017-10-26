@@ -1,0 +1,55 @@
+<!-- <nav-bar></nav-bar> -->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <!-- <h1>Settings Page</h1> -->
+
+  <ion-list *ngIf='this.isAdmin'>
+    <ion-list-header>
+      App Configuration
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name="edit" item-start color="danger"></ion-icon>
+      <ion-label>Editor Mode</ion-label>
+      <ion-toggle checked="true" color="secondary"></ion-toggle>
+    </ion-item>
+
+    <button ion-item>
+      <ion-icon name="theme" item-start color="primary"></ion-icon>
+      <ion-label>Change Theme</ion-label>
+      <ion-note item-end>Theme1</ion-note>
+    </button>
+  </ion-list>
+  
+  <ion-list >
+      <ion-list-header>
+        User Configuration
+      </ion-list-header>
+
+      <button ion-item>
+        <ion-icon name="flask" item-start color="primary"></ion-icon>
+        <ion-label>Edit Profile</ion-label>
+      </button>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Others
+    </ion-list-header>
+
+    <button ion-item (click)='feed = isAdmin'>
+      <ion-icon name="planet" item-start color="primary"></ion-icon>
+      <ion-label>Feedback</ion-label>
+    </button>
+    <ion-item (click)="logout()">
+      <ion-icon name="log-out" item-start></ion-icon>
+      <ion-label>Log Out</ion-label>
+    </ion-item>
+  </ion-list> 
+</ion-content>
