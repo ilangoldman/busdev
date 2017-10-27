@@ -20,71 +20,55 @@ export class SetUpPage {
 
   slidesBD = [];
 
+  navSlides = [
+    {
+      description: "In App Navigation",
+      image: "",
+      title: 'In App'
+    },
+    {
+      description: "Tabs",
+      image: "assets/img/set-up/tabs.jpg",//"assets/img/tabs.jpg",
+      title: 'Tabs'
+    },
+    {
+      description: "Side Menu",
+      image: "assets/img/set-up/sidemenu.jpg",// "assets/img/sidemenu2.png",
+      title: 'SideMenu'
+    }
+  ];
+
   slidesStart = [
     {
       title: "Welcome to the BusDev App!",
       description: "The <b>Development</b> for <b>Business Man</b>!.",
       image: "assets/icon/logo.jpg",
-      icon: '',
-      iconColor: "",
-      setRadio: false,
       setButton: false,
-      buttonText: "OK",
-      buttonIcon: "arrow-forward",
       nav: false
     },
     {
       title: "Start Set Up!",
       description: "Let's do it",
-      image: "",
-      iconColor: "",
       icon: 'ios-construct',
-      setRadio: true,
       setButton: true,
       buttonText: "Start",
       buttonIcon: "arrow-forward",
       nav: false
     },
     {
-      title: "Start Set Up!",
-      description: "Let's do it",
-      image: "",
-      iconColor: "",
-      icon: 'ios-construct',
-      setRadio: true,
-      setButton: true,
-      buttonText: "Start",
-      buttonIcon: "arrow-forward",
       nav: true
     },
     {
-      title: "The END",
-      description: "Let's do it",
-      image: "",
-      iconColor: "",
-      icon: 'ios-construct',
-      setRadio: true,
-      setButton: true,
-      buttonText: "Start",
-      buttonIcon: "arrow-forward",
-      nav: false
-    }
-  ];
-
-  slideFinish = [
-    {
       title: "Set Up Completed!",
       description: "Let's go to your App",
-      image: "",
       iconColor: "secondary",
       icon: 'md-checkmark-circle-outline',
-      setRadio: true,
       setButton: true,
       buttonText: "Finish",
       buttonIcon: "arrow-forward",
       nav: false
     }
-  ]
+  ];
 
   constructor(
     public navCtrl: NavController, 
@@ -92,28 +76,38 @@ export class SetUpPage {
     public user: UserProvider
   ) {
     this.slidesBD = this.slidesStart;
-    if (navParams.data==2) {
-      this.slidesBD = this.slideFinish;
-    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetUpPage');
-    this.s2.direction = 'vertical';
+    // this.s2.direction = 'vertical';
+    // this.s2.loop = true;
   }
 
   ionViewWillEnter() {
     // TODO!! -> check where the view is comming from
     //this.setUpParams();
-    this.slides.slideTo(0);
+    // this.slides.slideTo(0);
+  }
+
+  slidesEnd() {
+    console.log("s1 - end");
+  }
+
+  s2End() {
+    console.log("s2 - end");
   }
 
   actionButton() {
-    if (this.slidesBD == this.slidesStart) {
-      this.navCtrl.push(SliderPage,0);
-    } else if (this.slidesBD == this.slideFinish) {
-      this.finish();
-    }
+    console.log(this.slides.getActiveIndex()); 
+    console.log(this.slides.length()) ; 
+    console.log(this.slides.id); 
+    console.log(this.slides.isEnd());     
+    
+    // this.slides.slideNext();
+    // if (this.slides.length == this.slides.slideId) {
+    //   this.finish();
+    // }
   }
 
   // setUp() {

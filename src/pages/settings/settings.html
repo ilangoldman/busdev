@@ -14,13 +14,16 @@
       App Configuration
     </ion-list-header>
 
-    <ion-item>
+    <ion-item (click)='editor(edit.value,edit)'>
       <ion-icon name="edit" item-start color="danger"></ion-icon>
       <ion-label>Editor Mode</ion-label>
-      <ion-toggle checked="true" color="secondary"></ion-toggle>
+
+      <!-- (ionChanged)='editor(edit.value,edit)'-->
+      <ion-toggle #edit checked="true" color="secondary"> </ion-toggle>
     </ion-item>
 
-    <button ion-item>
+    <!-- change to dropdown list -->
+    <button ion-item> 
       <ion-icon name="theme" item-start color="primary"></ion-icon>
       <ion-label>Change Theme</ion-label>
       <ion-note item-end>Theme1</ion-note>
@@ -32,7 +35,7 @@
         User Configuration
       </ion-list-header>
 
-      <button ion-item>
+      <button ion-item (click)='navigateTo("editProfile")'>
         <ion-icon name="flask" item-start color="primary"></ion-icon>
         <ion-label>Edit Profile</ion-label>
       </button>
@@ -43,10 +46,11 @@
       Others
     </ion-list-header>
 
-    <button ion-item (click)='feed = isAdmin'>
+    <button ion-item (click)='navigateTo("feedback")'>
       <ion-icon name="planet" item-start color="primary"></ion-icon>
       <ion-label>Feedback</ion-label>
     </button>
+
     <ion-item (click)="logout()">
       <ion-icon name="log-out" item-start></ion-icon>
       <ion-label>Log Out</ion-label>

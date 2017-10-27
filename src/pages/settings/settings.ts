@@ -39,6 +39,20 @@ export class SettingsPage {
   logout() {
     this.user.logout();
     this.navCtrl.setRoot(LoginPage);
-  } 
+  }
+
+  navigateTo(page:string) {
+    switch(page) {
+      case "feedback":
+        break;
+    }
+  }
+
+  editor(val:any,xx:any) {
+    console.log("edit");
+    console.log(val);
+    console.log(xx);
+    
+  }
 
 }

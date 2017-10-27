@@ -5,7 +5,7 @@
 </ion-toolbar> -->
 
 <ion-content>
-  <ion-slides pager>   <!-- (ionSlideNextStart)="setUp()"> -->
+  <ion-slides pager (ionSlideReachEnd)="slidesEnd();">   <!-- (ionSlideNextStart)="setUp()"> -->
     <ion-slide *ngFor="let slide of slidesBD">
       <div *ngIf="!slide.nav">
         <img [src]="slide.image" />
@@ -22,18 +22,23 @@
       
       <div *ngIf="slide.nav">
         <h1>Choose Navigation</h1>
-        <ion-slides pager #slide2>
-          <h1>Choose Navigation</h1>
-          <ion-slide>
-            <h1>Tabs</h1> <br><br><br>
-          </ion-slide>
-          <ion-slide>
-            <h1>SideMenu</h1> <br><br><br>
-          </ion-slide>
-          <ion-slide>
-            <h1>In App</h1> <br><br><br>
-          </ion-slide>
-        </ion-slides>
+        <!-- <ion-content>
+          <ion-slides pager #slide2 (ionSlideReachEnd)="s2End();">
+            <h1 [innerHTML]="Choose Navigation"></h1>
+            <ion-slide *ngFor="let nav of navSlides">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-9> <!-- class="parent" 
+                      <img [src]="nav.image"/>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <h3 [innerHTML]="nav.description"></h3>
+              <p [innerHTML]="nav.description"></p>
+              
+            </ion-slide>
+          </ion-slides>
+        </ion-content> -->
       </div>
   
     </ion-slide>
