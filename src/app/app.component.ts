@@ -9,13 +9,15 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { SetUpPage } from '../pages/set-up/set-up';
 import { NavigationPage } from '../pages/navigation/navigation';
+import { BlankPage } from '../pages/blank/blank';
+
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SetUpPage;
+  rootPage: any = BlankPage;
 
   constructor(
     platform: Platform, 

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, Content,ViewController } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
+import { NavController, NavParams, Content, ViewController, FabContainer } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
+import { Component, Output, Input, ViewChild, EventEmitter } from '@angular/core';
+import { ViewChildren, QueryList, Renderer, ElementRef } from '@angular/core';
+
+
+
 import { NavigationPage } from '../navigation/navigation';
+import { mockBD } from './BD'; 
 
 @Component({
   selector: 'page-blank',
@@ -27,6 +31,7 @@ export class BlankPage {
   index;
 
   form : FormGroup;
+  pageItems: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -34,12 +39,7 @@ export class BlankPage {
     public viewCtrl: ViewController,
     private formBuilder: FormBuilder
   ) {
-    this.list = this.navParams.get('content');
-
-    this.title = this.navParams.get('title');
-    this.text = this.navParams.get('text');
-    this.btn = this.navParams.get('btn');
-    this.index = this.navParams.get('i');
+    this.pageItems = mockBD;
 
     this.form = this.formBuilder.group({
       Title: ['', Validators.required],
@@ -51,6 +51,45 @@ export class BlankPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BlankPage');
   }
+
+  getItemType(type,item):boolean {
+    return (type==item);
+  }
+
+  reorderItems(indexes) {
+    let element = this.pageItems[indexes.from];
+    this.pageItems.splice(indexes.from, 1);
+    this.pageItems.splice(indexes.to, 0, element);
+  }
+
+  deleteItem(index) {
+    this.pageItems.splice(index, 1);
+  }
+
+
+  // Editor Functions
+
+  addItem(addType) {
+    var newItem = {
+      type: addType,
+      label: "Default",
+      button: {
+        label: "Default",
+        icon: "add",
+        color: "default",
+        outline: true,
+        left: true,
+        block: true
+      },
+      card: {
+        header: "Default",
+        content: "Default"
+      }
+    }
+    this.pageItems.push(newItem);
+  }
+
+  // DEPRECATED !!!
 
   edit() { 
     this.isEdit = !this.isEdit;
