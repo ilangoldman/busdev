@@ -10,9 +10,11 @@ export class UserProvider {
   isAdmin:boolean;
   isLogged:boolean = false;
   setUpComplete:boolean = false;
+  editor:boolean = false;
 
   constructor() {
     console.log('Hello UserProvider Provider');
+    this.isAdmin = true;
   }
 
   login(name,isAdmin): Promise<any> {

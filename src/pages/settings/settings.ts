@@ -48,11 +48,9 @@ export class SettingsPage {
     }
   }
 
-  editor(val:any,xx:any) {
-    console.log("edit");
-    console.log(val);
-    console.log(xx);
-    
+  editor(value) {
+    console.log(value);
+    // TO DO!!
   }
 
 }

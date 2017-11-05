@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, NavParams } from 'ionic-angular';
-import { SettingsPage } from '../settings/settings';
 
+import { SettingsPage } from '../settings/settings';
+import { BlankPage } from '../blank/blank';
+
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
   selector: 'nav-bar',
@@ -11,12 +14,15 @@ export class NavigationPage {
 
   title = 'BusDev';
   titleClass = '';
+  color = "light";
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public user: UserProvider
   ) {
+
   }
 
   ionViewDidLoad() {
@@ -29,6 +35,17 @@ export class NavigationPage {
       this.navCtrl.push(SettingsPage,this);
       // this.titleClass = 'editor';      
     }
+  }
+
+  toggleChanged(value) {
+    console.log("toogle");
+    if (value == true) {
+      this.color = "danger";
+      this.user.editor = true;
+    } else {
+      this.color = "light"; 
+      this.user.editor = false;
+    } 
   }
 
   openSettings() {

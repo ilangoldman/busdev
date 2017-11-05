@@ -14,12 +14,12 @@
       App Configuration
     </ion-list-header>
 
-    <ion-item (click)='editor(edit.value,edit)'>
+    <ion-item>
       <ion-icon name="edit" item-start color="danger"></ion-icon>
       <ion-label>Editor Mode</ion-label>
 
       <!-- (ionChanged)='editor(edit.value,edit)'-->
-      <ion-toggle #edit checked="true" color="secondary"> </ion-toggle>
+      <ion-toggle #edit checked="true" color="secondary" (ionChanged)="editor(edit.value)"> </ion-toggle>
     </ion-item>
 
     <!-- change to dropdown list -->

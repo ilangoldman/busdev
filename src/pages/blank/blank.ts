@@ -4,7 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Output, Input, ViewChild, EventEmitter } from '@angular/core';
 import { ViewChildren, QueryList, Renderer, ElementRef } from '@angular/core';
 
-
+import { UserProvider } from '../../providers/user/user';
 
 import { NavigationPage } from '../navigation/navigation';
 import { mockBD } from './BD'; 
@@ -27,7 +27,6 @@ export class BlankPage {
 
   text:string;
   btn:any;
-  isEdit:boolean;
   index;
 
   form : FormGroup;
@@ -37,10 +36,10 @@ export class BlankPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public user: UserProvider
   ) {
     this.pageItems = mockBD;
-
     this.form = this.formBuilder.group({
       Title: ['', Validators.required],
       Subtitle: ['', Validators.required],
@@ -52,7 +51,12 @@ export class BlankPage {
     console.log('ionViewDidLoad BlankPage');
   }
 
+  isNull(item) {
+    return (item != null);
+  }
+
   getItemType(type,item):boolean {
+    // if (item=='label') console.log("getItem: " + (type == item));
     return (type==item);
   }
 
@@ -66,13 +70,38 @@ export class BlankPage {
     this.pageItems.splice(index, 1);
   }
 
+  editButton() {
+    console.log("edicao");
+  }
+  
+  editItem() {
+    console.log("edicao item");
+  }
+
+  buttonAction() {
+    console.log("btn action");
+  }
+
+  cardAction() {
+    console.log("card action");
+  }
+
 
   // Editor Functions
 
   addItem(addType) {
     var newItem = {
       type: addType,
-      label: "Default",
+      label: {
+        text: "Default",
+        icon: null,
+        thumbnail: "assets/icon/logo.jpg",
+        button: {
+          icon: "arrow-forward",
+          text: "Default",
+          color: "dark"
+        }
+      },
       button: {
         label: "Default",
         icon: "add",
@@ -92,7 +121,8 @@ export class BlankPage {
   // DEPRECATED !!!
 
   edit() { 
-    this.isEdit = !this.isEdit;
+    this.user.editor = !this.user.editor;
+    console.log("edit: " + this.user.editor);
   }
 
   itemButton(action) {

@@ -1,10 +1,12 @@
 <ion-header>
-  <ion-navbar>
-    <ion-item>
+  <ion-navbar color="{{this.color}}">
+    
+    <ion-item no-lines color="{{this.color}}">
       <ion-avatar item-start>
         <img round src="assets/icon/logo.jpg">
       </ion-avatar>
-      <ion-title class='{{this.titleClass}}' item-end>{{this.title}}</ion-title>
+      <ion-label class='{{this.titleClass}}'>{{this.title}}</ion-label>
+      <ion-toggle *ngIf="user.isAdmin" #editor checked="false" color="dark" (ionChange)="toggleChanged(editor.value)"> </ion-toggle>
     </ion-item>
   </ion-navbar>
 </ion-header>

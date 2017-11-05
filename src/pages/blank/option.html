@@ -1,0 +1,28 @@
+<!-- Button Options -->
+
+<!-- Button Option 1: Just a btn -->
+<button ion-button block (click)="(this.isEdit) ? editItem():buttonAction()" color="{{item.button.color}}" *ngIf="getItemType(item.type,'button')"
+    [outline]="item.button.outline ? '' : null" icon-left="(item.button.left)?'':null" icon-right="(!item.button.left)?'':null">
+    <ion-icon name="{{item.button.icon}}" *ngIf="item.button.left"></ion-icon>
+    {{item.button.label}}
+    <ion-icon name="{{item.button.icon}}" *ngIf="!item.button.left"></ion-icon>
+    <!-- <button item-end> this.isEdit </button> -->
+</button>
+
+
+<!-- Button Option 2: card that look like a button -->
+<ion-card color="danger" border="secondary">
+    <ion-card-content>
+        sdg
+    </ion-card-content>
+</ion-card>
+
+<!-- Button Option 3: card with a btn inside -->
+<ion-card  *ngIf="getItemType(item.type,'button')">
+    <button ion-button block (click)="(this.isEdit) ? editItem():buttonAction()" color="{{item.button.color}}" *ngIf="getItemType(item.type,'button')"
+        [outline]="item.button.outline ? '' : null" icon-left="(item.button.left)?'':null" icon-right="(!item.button.left)?'':null">
+        <ion-icon name="{{item.button.icon}}" *ngIf="item.button.left"></ion-icon>
+        {{item.button.label}}
+        <ion-icon name="{{item.button.icon}}" *ngIf="!item.button.left"></ion-icon>
+    </button>
+</ion-card>

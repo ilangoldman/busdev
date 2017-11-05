@@ -2,7 +2,16 @@
 export var mockBD = [
     {
         type:"label",
-        label: "testeL",
+        label: {
+            text: "teste lll",
+            icon: "add",
+            thumbnail: null,
+            button: {
+                icon: "arrow-forward",
+                text: "",
+                color:"dark"
+            }
+        },
         button:null,
         card: null
     },
@@ -38,12 +47,17 @@ export var mockBD = [
         button: null,
         card: {
             header:"Card Header",
-            content:"Card Content"
+            content:"The most popular industrial group ever, and largely responsible for bringing the music to a mass audience."
         }
     },
     {
         type: "label",        
-        label: "testeL1",
+        label: {
+            text: "teste lll 222",
+            icon: null,
+            thumbnail: "assets/icon/logo.jpg",
+            button: null
+        },
         button: null,
         card: null
     }
