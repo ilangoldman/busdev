@@ -3,77 +3,96 @@
 <!-- color="primary" -->
 
 <ion-content padding color="danger">
-  <br>
-  <form (ngSubmit)="done()" [formGroup]="form">
+  <!-- <form (ngSubmit)="done()" [formGroup]="form"></form> -->
+  
+  <ion-toolbar *ngIf="user.editor"></ion-toolbar>
+
 
     <ion-list no-lines>
       <ion-list-header></ion-list-header>
-      <ion-item-group reorder="{{this.user.editor}}" (ionItemReorder)="reorderItems($event)">
+      <ion-item-group reorder="{{this.move}}" (ionItemReorder)="reorderItems($event)">
         <ion-item text-wrap *ngFor="let item of pageItems; let i = index;">
 
-          <!-- Text Item or List -->
-          <ion-icon name="{{item.label.icon}}" *ngIf="getItemType(item.type,'label') && isNull(item.label.icon)" item-start></ion-icon>
-          <ion-thumbnail item-start *ngIf="getItemType(item.type,'label') && (item.label.thumbnail != null)">
-            <img src="{{item.label.thumbnail}}">
-          </ion-thumbnail>
-          <ion-label *ngIf="getItemType(item.type,'label') && !this.user.editor">{{item.label.text}}</ion-label>
-          <ion-input *ngIf="getItemType(item.type,'label') && this.user.editor" value="{{item.label.text}}"></ion-input>
-          <button ion-button icon-left item-end outline color="{{item.label.button.color}}" *ngIf="getItemType(item.type,'label') && isNull(item.label.button)">
-            <ion-icon name="{{item.label.button.icon}}"></ion-icon>
-            <div>{{item.label.button.text}}</div>
-          </button>
+          <!-- image -->
+          <img *ngIf="getItemType(item.type,'img')" src="{{item.img}}">
+
+          <!-- text -->
+          <ion-label *ngIf="getItemType(item.type,'label') && !this.user.editor">{{item.text}}</ion-label>
+          <ion-input *ngIf="getItemType(item.type,'label') && this.user.editor" value="{{item.text}}"></ion-input>
+
+          <!-- button -->
+          <!-- <button ion-button block (click)="(this.isEdit) ? editItem():buttonAction()" color="{{item.button.color}}" *ngIf="getItemType(item.type,'button')"
+            [outline]="item.button.outline ? '' : null" icon-left="(item.button.left)?'':null" icon-right="(!item.button.left)?'':null">
+            <ion-icon name="{{item.button.icon}}" *ngIf="item.button.left"></ion-icon>
+            {{item.button.label}}
+            <ion-icon name="{{item.button.icon}}" *ngIf="!item.button.left"></ion-icon>
+          </button> -->
 
           <!-- Button Item -->
-          <ion-card *ngIf="getItemType(item.type,'button')" color="{{item.button.color}}" style="padding:0;border:0;margin:0;">
+          <ion-card *ngIf="getItemType(item.type,'button')" color="{{item.color}}" style="padding:0;border:0;margin:0;">
             <ion-card-content>
-              <ion-item color="light" text-conter>
-                <ion-icon item-start name="{{item.button.icon}}" *ngIf="item.button.left"></ion-icon>
-                {{item.button.label}}
-                <ion-icon item-end name="{{item.button.icon}}" *ngIf="!item.button.left"></ion-icon>
-              </ion-item>
+                {{item.text}}
             </ion-card-content>
           </ion-card>
 
-          <!-- Card Item -->
-          <ion-card *ngIf="getItemType(item.type,'card')" (click)="(this.user.editor) ? editItem():cardAction()">
-            <img src="assets/icon/logo.jpg">
-            <ion-card-content>
-              <ion-card-title>
-              {{item.card.header}}
-              </ion-card-title> 
-              <p>
-               {{item.card.content}}
-              </p>
-            </ion-card-content>
+          <ion-fab item-end right #fab *ngIf="this.user.editor">
+            <button mini ion-fab color="light" clear>
+              <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
 
-            <!-- <ion-row>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
-                  <div>12 Likes</div>
-                </button>
-                <ion-note> 11h ago </ion-note>
-                <div>11h ago</div>
-              </ion-col>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="text"></ion-icon>
-                  <div>4 Comments</div>
-                </button>
-                <ion-note> 11h ago </ion-note>
-                <div>11h ago</div>
-              </ion-col>
-              <ion-col center text-center>
-                <ion-note> 11h ago </ion-note>
-                <div>11h ago</div>
-              </ion-col>
-            </ion-row> -->
+            <ion-fab-list side="left">
 
-          </ion-card>
+              <button mini ion-button color="danger" (click)="deleteItem(i,fab)">
+                <ion-icon name="ios-trash"></ion-icon>
+                <!-- Delete -->
+              </button>
 
-          <button *ngIf="this.user.editor" ion-button color="danger" item-end (click)="deleteItem(i)">
-            <ion-icon name="md-trash"></ion-icon>
-          </button>
+              <button mini ion-button color="light" (click)="moveItem('',fab)">
+                <ion-icon name="ios-move-outline"></ion-icon>
+                <!-- Move -->
+              </button>
+
+              <button mini ion-button color="light" (click)="addItem('label',i,'up',fab)">
+                <ion-icon name="md-arrow-up"></ion-icon>
+                 <!-- New Up  -->
+              </button>
+              
+              <button mini ion-button color="light" (click)="addItem('label',i,'down',fab)">
+                <ion-icon name="md-arrow-down"></ion-icon>
+                <!-- New Down -->
+              </button>
+
+              <button mini ion-button color="light" (click)="fabAction('replace',fab)">
+                <ion-icon name="ios-swap"></ion-icon>
+                <!-- Replace -->
+              </button>
+
+              <!-- <button outline color="light" item-start (click)="addItem('label')">
+                Label
+              </button>
+              <button ion-fab color="default" (click)="addItem('label')">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </button>
+
+              <button outline color="light" item-start (click)="addItem('button')">
+                Button
+              </button>
+              <button ion-fab (click)="addItem('button')">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </button>
+
+              <button outline color="light" item-start (click)="addItem('card')">
+                Card
+              </button>
+              <button ion-fab color="default" (click)="addItem('card')">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </button> -->
+
+
+            </ion-fab-list>
+          </ion-fab>
+
+          
 
         </ion-item>
       </ion-item-group>
@@ -104,36 +123,7 @@
 
     <button ion-button block *ngIf="btn.isHidden" type="submit">{{btn.text}}</button> -->
 
-  </form>
-
-  <ion-fab right bottom *ngIf="this.user.editor">
-    <button ion-fab color="secondary">
-      <ion-icon name="add"></ion-icon>
-    </button>
-    <ion-fab-list side="top">
-
-      <button outline color="light" item-start (click)="addItem('label')">
-        Label
-      </button>
-      <button ion-fab color="default" (click)="addItem('label')">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </button>
-
-      <button outline color="light" item-start (click)="addItem('button')">
-        Button
-      </button>
-      <button ion-fab (click)="addItem('button')">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </button>
-
-      <button outline color="light" item-start (click)="addItem('card')">
-        Card
-      </button>
-      <button ion-fab color="default" (click)="addItem('card')">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
+ 
 
 </ion-content>
 

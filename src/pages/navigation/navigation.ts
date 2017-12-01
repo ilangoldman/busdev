@@ -13,8 +13,8 @@ import { UserProvider } from '../../providers/user/user';
 export class NavigationPage {
 
   title = 'BusDev';
-  titleClass = '';
-  color = "light";
+  color = "client";
+  icon = "ios-create-outline";
 
   constructor(
     public navCtrl: NavController, 
@@ -37,15 +37,19 @@ export class NavigationPage {
     }
   }
 
-  toggleChanged(value) {
-    console.log("toogle");
-    if (value == true) {
-      this.color = "danger";
-      this.user.editor = true;
+  toggleEdit() {
+    console.log("toogle   ");
+    this.user.editor = !this.user.editor;
+    if (this.user.editor == true) {
+      this.color = "editor";
+      this.title = "BusDev";
+      this.icon = "ios-eye";
     } else {
-      this.color = "light"; 
-      this.user.editor = false;
+      this.color = "client";
+      this.title = "App Cliente";
+      this.icon = "ios-create-outline";
     } 
+    
   }
 
   openSettings() {

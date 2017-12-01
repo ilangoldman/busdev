@@ -19,7 +19,6 @@ export class BlankPage {
 
   editNav() {
     this.navbar.title = 'Settings';
-    this.navbar.titleClass = 'editor';
   }
   
   title:string;
@@ -28,9 +27,10 @@ export class BlankPage {
   text:string;
   btn:any;
   index;
+  move = false;
 
   form : FormGroup;
-  pageItems: any;
+  pageItems = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -66,10 +66,6 @@ export class BlankPage {
     this.pageItems.splice(indexes.to, 0, element);
   }
 
-  deleteItem(index) {
-    this.pageItems.splice(index, 1);
-  }
-
   editButton() {
     console.log("edicao");
   }
@@ -82,40 +78,44 @@ export class BlankPage {
     console.log("btn action");
   }
 
-  cardAction() {
-    console.log("card action");
+  fabAction(fab: FabContainer) {
+    fab.toggleList();
+    //console.log(fabBtn+" action");  
   }
 
+  closeFab(fab: FabContainer) {
+    //console.log(fab);
+    //fab.toggleList();
+    fab.close();
+  }
 
   // Editor Functions
 
-  addItem(addType) {
+  deleteItem(index, fab: FabContainer) {
+    this.pageItems.splice(index, 1);
+    fab.close();
+  }
+
+  moveItem(action, fab: FabContainer) {
+    if (action == "done") this.move = false;
+    this.move = true;
+    if (fab != null) fab.close();
+  }
+
+  addItem(addType, pos, side, fab: FabContainer) {
     var newItem = {
       type: addType,
-      label: {
-        text: "Default",
-        icon: null,
-        thumbnail: "assets/icon/logo.jpg",
-        button: {
-          icon: "arrow-forward",
-          text: "Default",
-          color: "dark"
-        }
-      },
-      button: {
-        label: "Default",
-        icon: "add",
-        color: "default",
-        outline: true,
-        left: true,
-        block: true
-      },
-      card: {
-        header: "Default",
-        content: "Default"
-      }
-    }
+      text: "Default",
+      color: "default",
+      img: "assets/icon/logo.jpg"
+    };
     this.pageItems.push(newItem);
+    var itemIndex = {
+      from: (this.pageItems.length - 1),
+      to: ((side == 'up') ? pos : pos + 1)
+    }
+    this.reorderItems(itemIndex);
+    fab.close();    
   }
 
   // DEPRECATED !!!
