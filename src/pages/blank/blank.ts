@@ -1,4 +1,4 @@
-import { NavController, NavParams, Content, ViewController, FabContainer } from 'ionic-angular';
+import { NavController, NavParams, Content, ViewController, FabContainer, PopoverController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { Component, Output, Input, ViewChild, EventEmitter } from '@angular/core';
@@ -7,6 +7,8 @@ import { ViewChildren, QueryList, Renderer, ElementRef } from '@angular/core';
 import { UserProvider } from '../../providers/user/user';
 
 import { NavigationPage } from '../navigation/navigation';
+import { NewItemPopoverPage } from '../new-item-popover/new-item-popover';
+
 import { mockBD } from './BD'; 
 
 @Component({
@@ -16,6 +18,7 @@ import { mockBD } from './BD';
 export class BlankPage {
   // @ViewChild(Content) content: Content;
   @ViewChild(NavigationPage) navbar: NavigationPage;
+  @ViewChild(FabContainer) fab: FabContainer;  
 
   editNav() {
     this.navbar.title = 'Settings';
@@ -37,22 +40,15 @@ export class BlankPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private formBuilder: FormBuilder,
-    public user: UserProvider
+    public user: UserProvider,
+    private popoverCtrl: PopoverController
   ) {
     this.pageItems = mockBD;
-    this.form = this.formBuilder.group({
-      Title: ['', Validators.required],
-      Subtitle: ['', Validators.required],
-      Image: ['', ],
-  });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BlankPage');
-  }
-
-  isNull(item) {
-    return (item != null);
+    // this.form = this.formBuilder.group({
+    //     Title: ['', Validators.required],
+    //     Subtitle: ['', Validators.required],
+    //     Image: ['', ],
+    // });
   }
 
   getItemType(type,item):boolean {
@@ -66,27 +62,16 @@ export class BlankPage {
     this.pageItems.splice(indexes.to, 0, element);
   }
 
-  editButton() {
-    console.log("edicao");
-  }
-  
-  editItem() {
-    console.log("edicao item");
-  }
-
-  buttonAction() {
-    console.log("btn action");
-  }
-
-  fabAction(fab: FabContainer) {
-    fab.toggleList();
-    //console.log(fabBtn+" action");  
-  }
-
   closeFab(fab: FabContainer) {
     //console.log(fab);
     //fab.toggleList();
     fab.close();
+  }
+
+  toggleFab() {
+    console.log(this.fab);
+    this.fab.toggleList();
+    // fab.close();
   }
 
   // Editor Functions
@@ -97,16 +82,15 @@ export class BlankPage {
   }
 
   moveItem(action, fab: FabContainer) {
-    if (action == "done") this.move = false;
-    this.move = true;
+    this.user.moveItems(true);
     if (fab != null) fab.close();
   }
 
-  addItem(addType, pos, side, fab: FabContainer) {
+  addItem(addType, pos, side) {
     var newItem = {
       type: addType,
-      text: "Default",
-      color: "default",
+      text: "Clique aqui para trocar o texto",
+      color: "editor",
       img: "assets/icon/logo.jpg"
     };
     this.pageItems.push(newItem);
@@ -115,7 +99,20 @@ export class BlankPage {
       to: ((side == 'up') ? pos : pos + 1)
     }
     this.reorderItems(itemIndex);
-    fab.close();    
+  }
+
+  newItem(fab: FabContainer, pos, side) {
+    let popover = this.popoverCtrl.create(NewItemPopoverPage);
+
+    popover.present();
+    popover.onDidDismiss((data) => {
+      if (data != null) this.addItem(data,pos,side);
+    });
+    fab.close();
+  }
+
+  editItem(pos,label) {
+    this.pageItems[pos].text = label;
   }
 
   // DEPRECATED !!!

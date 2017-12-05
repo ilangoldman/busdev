@@ -11,6 +11,7 @@ export class UserProvider {
   isLogged:boolean = false;
   setUpComplete:boolean = false;
   editor:boolean = false;
+  editorMove:boolean = false;
 
   constructor() {
     console.log('Hello UserProvider Provider');
@@ -59,6 +60,11 @@ export class UserProvider {
         reject('Invalid email or password!')
       }
     });
+  }
+
+  moveItems(moveOption) {
+    this.editorMove = moveOption;
+    this.editor = !moveOption;
   }
 
 }

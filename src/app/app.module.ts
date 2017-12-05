@@ -13,8 +13,11 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { NavigationPage } from '../pages/navigation/navigation';
+import { NewItemPopoverPage } from '../pages/new-item-popover/new-item-popover';
+
 import { AuthProvider } from '../providers/auth/auth';
 import { UserProvider } from '../providers/user/user';
+
 import { NavController } from 'ionic-angular';
 
 
@@ -30,7 +33,8 @@ import { BD } from '../pages/cards/BD';
     LoginPage,
     NavigationPage,
     HomePage,
-    SettingsPage
+    SettingsPage,
+    NewItemPopoverPage
   ],
   imports: [
     BrowserModule,
@@ -45,8 +49,9 @@ import { BD } from '../pages/cards/BD';
     BlankPage,
     LoginPage,
     NavigationPage,
+    HomePage,
     SettingsPage,
-    HomePage
+    NewItemPopoverPage
   ],
   providers: [
     StatusBar,

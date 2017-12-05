@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="{{this.color}}">
+  <ion-navbar color="{{this.color}}" *ngIf="!user.editorMove">
     <ion-buttons start>
       <button ion-button icon-only color="royal" (click)="navigateTo('settings')">
         <ion-icon name="settings"></ion-icon>
@@ -14,18 +14,18 @@
         <ion-icon name="{{this.icon}}"></ion-icon>
       </button>
     </ion-buttons>
-    <!-- <ion-buttons end *ngIf="!user.editorMove">
-      <button ion-button outline color="light" (click)="moveItem('done')">
-        Done
-      </button>
-    </ion-buttons> -->
   </ion-navbar>
 
-  <ion-toolbar color="client" *ngIf="user.editor">
+  <ion-toolbar color="client" *ngIf="user.editor || user.editorMove">
   
     <ion-title>
       <ion-input value="App Cliente"></ion-input>
     </ion-title>
+    <ion-buttons end *ngIf="user.editorMove">
+      <button ion-button outline color="light" (click)="move('done',null)">
+        Done
+      </button>
+    </ion-buttons>
   
   </ion-toolbar>
 

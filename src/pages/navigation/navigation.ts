@@ -58,4 +58,8 @@ export class NavigationPage {
     this.modalCtrl.create(SettingsPage).present();
   }
 
+  move() {
+    this.user.moveItems(false);
+  }
+
 }
