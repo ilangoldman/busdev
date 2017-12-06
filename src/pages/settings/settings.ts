@@ -19,15 +19,13 @@ import { LoginPage } from '../login/login';
 })
 export class SettingsPage {
   // @ViewChild(NavigationPage) navbar: NavigationPage;
-  isAdmin:boolean;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public user: UserProvider
   ) {
-    // this.navbar = navParams.data;
-    this.isAdmin = true;
+
   }
 
   ionViewDidLoad() {
@@ -43,14 +41,9 @@ export class SettingsPage {
 
   navigateTo(page:string) {
     switch(page) {
-      case "feedback":
+      case "PAGE":
         break;
     }
-  }
-
-  editor(value) {
-    console.log(value);
-    // TO DO!!
   }
 
 }

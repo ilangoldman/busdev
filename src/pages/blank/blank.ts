@@ -51,8 +51,12 @@ export class BlankPage {
     // });
   }
 
-  getItemType(type,item):boolean {
-    // if (item=='label') console.log("getItem: " + (type == item));
+  getItemType(type,item,pos?):boolean {
+    if (pos != null) {
+      console.log("getItem: " + this.pageItems[pos].text);
+      console.log("getItem2: " +type+"|"+item+"|"+ (type == item));
+      
+    }
     return (type==item);
   }
 
@@ -99,6 +103,7 @@ export class BlankPage {
       to: ((side == 'up') ? pos : pos + 1)
     }
     this.reorderItems(itemIndex);
+    console.log(this.pageItems);
   }
 
   newItem(fab: FabContainer, pos, side) {
@@ -112,19 +117,12 @@ export class BlankPage {
   }
 
   editItem(pos,label) {
+    console.log("item: " + pos + " - " + label + " - " + this.pageItems[pos].text);
     this.pageItems[pos].text = label;
-  }
-
-  // DEPRECATED !!!
-
-  edit() { 
-    this.user.editor = !this.user.editor;
-    console.log("edit: " + this.user.editor);
-  }
-
-  itemButton(action) {
+    console.log("item: " + pos + " - " + label + " - " + this.pageItems[pos].text);
     
   }
+  // DEPRECATED !!!
 
   back() {
     this.navCtrl.pop();

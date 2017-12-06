@@ -14,10 +14,10 @@
         <ion-item text-wrap *ngFor="let item of pageItems; let i = index;">
 
           <!-- image -->
-          <img *ngIf="getItemType(item.type,'img')" src="{{item.img}}" (click)="edit()">
+          <img *ngIf="getItemType(item.type,'img')" src="{{item.img}}">
 
           <!-- text -->
-          <div *ngIf="getItemType(item.type,'label') && !this.user.editor">{{item.text}}</div>
+          <div *ngIf="getItemType(item.type,'label',i) && !this.user.editor" [innerHtml]="item.text"></div>
           <ion-textarea #labelInput
             *ngIf="getItemType(item.type,'label') && this.user.editor" 
             value="{{item.text}}"
@@ -33,12 +33,17 @@
           </button> -->
 
           <!-- Button Item -->
-          <ion-card *ngIf="getItemType(item.type,'button')" color="{{item.color}}">
+          <ion-card *ngIf="getItemType(item.type,'button') && !this.user.editor" color="{{item.color}}">
             <ion-card-content>
                 {{item.text}}
             </ion-card-content>
           </ion-card>
-
+          <!-- <ion-input #buttonInput 
+            *ngIf="getItemType(item.type,'button') && this.user.editor"
+            value="{{item.text}}" 
+            (input)="editItem(i,buttonInput.value)"
+          ></ion-input> -->
+      
           <!-- <button ion-button item-end color="dark" (click)="toggleFab()">
             <ion-icon name="ios-arrow-back"></ion-icon>
           </button> -->

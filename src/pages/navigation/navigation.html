@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar color="{{this.color}}" *ngIf="!user.editorMove">
-    <ion-buttons start>
+  <ion-navbar color="{{this.color}}">
+    <ion-buttons start *ngIf="!user.editorMove">
       <button ion-button icon-only color="royal" (click)="navigateTo('settings')">
         <ion-icon name="settings"></ion-icon>
       </button>
@@ -9,24 +9,23 @@
       </button>
     </ion-buttons>
     <ion-title>{{this.title}}</ion-title>
-    <ion-buttons end>
+    <ion-buttons end *ngIf="!user.editorMove">
       <button ion-button icon-only color="royal" *ngIf="user.isAdmin" (click)="toggleEdit()">
         <ion-icon name="{{this.icon}}"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
-
-  <ion-toolbar color="client" *ngIf="user.editor || user.editorMove">
-  
-    <ion-title>
-      <ion-input value="App Cliente"></ion-input>
-    </ion-title>
     <ion-buttons end *ngIf="user.editorMove">
       <button ion-button outline color="light" (click)="move('done',null)">
         Done
       </button>
     </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar color="client" *ngIf="user.editor">
   
+    <ion-title>
+      <ion-input value="App Cliente"></ion-input>
+    </ion-title>  
   </ion-toolbar>
 
   <!-- <ion-navbar color="{{this.color}}">

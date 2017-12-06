@@ -16,6 +16,7 @@ export class UserProvider {
   constructor() {
     console.log('Hello UserProvider Provider');
     this.isAdmin = true;
+    this.name = "Ilan Goldman";
   }
 
   login(name,isAdmin): Promise<any> {
