@@ -17,7 +17,7 @@ import { BlankPage } from '../pages/blank/blank';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = BlankPage;
+  rootPage: any = LoginPage;
 
   constructor(
     platform: Platform, 

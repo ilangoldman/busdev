@@ -6,6 +6,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UserProvider } from '../../providers/user/user';
 import { CardsPage } from '../cards/cards';
 import { SetUpPage } from '../set-up/set-up';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-login',
@@ -46,8 +47,8 @@ export class LoginPage {
       });
   }
 
-  signInWithEmail() {
-      this.auth.loginEmail(this.loginForm.value.email, this.loginForm.value.password)
+  signInWithEmail(email,pwd) {
+      this.auth.loginEmail(email,pwd)
           .then(() => {
             if (!this.user.setUpComplete)
             this.navCtrl.setRoot(SetUpPage);
@@ -60,8 +61,16 @@ export class LoginPage {
         // console.log(this.user.name + " -> " + this.user.isAdmin + " || " + this.user.setUpComplete);
   }
 
-  navigateTo(page) {
-      this.navCtrl.push(page);
+  navigateTo(page: string) {
+    switch (page) {
+      case "signup":
+        this.navCtrl.setRoot(SignupPage);      
+        break;
+    }
+  }
+
+  close() {
+    this.hasError = false;
   }
 
 

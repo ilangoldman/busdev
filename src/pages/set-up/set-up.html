@@ -1,71 +1,41 @@
-<!-- <ion-toolbar>
-  <ion-buttons end>
-    <button ion-button color="primary" (click)="finish()">Done</button>
-  </ion-buttons>
-</ion-toolbar> -->
 
-<ion-content>
-  <ion-slides pager (ionSlideReachEnd)="slidesEnd();">   <!-- (ionSlideNextStart)="setUp()"> -->
-    <ion-slide *ngFor="let slide of slidesBD">
-      <div *ngIf="!slide.nav">
-        <img [src]="slide.image" />
-        <ion-icon name="{{slide.icon}}" color="{{slide.iconColor}}" style="font-size: 90px;"></ion-icon>
-        <h2 [innerHTML]="slide.title"></h2>
-        <p [innerHTML]="slide.description"></p>
-        <div *ngIf="slide.setButton">
-          <button ion-button large clear icon-end color="primary" (click)="actionButton()">
-            {{slide.buttonText}}
-            <ion-icon name="{{slide.buttonIcon}}"></ion-icon>
-          </button>
-        </div>
-      </div>
-      
-      <div *ngIf="slide.nav">
-        <h1>Choose Navigation</h1>
-        <!-- <ion-content>
-          <ion-slides pager #slide2 (ionSlideReachEnd)="s2End();">
-            <h1 [innerHTML]="Choose Navigation"></h1>
-            <ion-slide *ngFor="let nav of navSlides">
-              <ion-grid>
-                <ion-row>
-                  <ion-col col-9> <!-- class="parent" 
-                      <img [src]="nav.image"/>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-              <h3 [innerHTML]="nav.description"></h3>
-              <p [innerHTML]="nav.description"></p>
-              
-            </ion-slide>
-          </ion-slides>
-        </ion-content> -->
-      </div>
-  
+<ion-content class="setup-content">
+  <ion-slides pager>
+
+    <ion-slide>
+      <img src="assets/icon/logo.jpg" />
+      <h2 class="setup-title">Welcome to the BusDev App!</h2>
+      <p ion-text class="setup-text">The <b>Development</b> for <b>Business Man</b>! </p>
+    </ion-slide>
+
+    <ion-slide>
+      <h2 class="setup-title">Choose your Navigation</h2>
+      <br><br>
+      <ion-row>
+        <ion-col color="primary" (click)="setNav('tabs')">
+          <ion-icon class="setup-icon" name="ios-browsers"></ion-icon>
+          <p class="setup-text">Tabs</p>
+        </ion-col>
+        <ion-col (click)="setNav('side-menu')">
+          <ion-icon class="setup-icon" name="ios-menu-outline"></ion-icon>
+          <p class="setup-text">Side Menu</p>
+        </ion-col>
+        <ion-col (click)="setNav('blank')">
+          <ion-icon class="setup-icon" name="ios-document"></ion-icon>
+          <p class="setup-text">Single Page</p>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-icon name="md-checkmark-circle-outline" color="secondary" class="setup-icon"></ion-icon>
+      <h2 class="setup-title">Set Up Completed!</h2>
+      <p ion-text class="setup-text">Let's go to your App</p>
+      <button ion-button large clear icon-end color="primary" class="setup-button" (click)="finish()">
+         Finish
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
     </ion-slide>
 
   </ion-slides>
-
-  <!-- <ion-slides #slide1 pager>
-    <ion-slide>
-      <h1>Hey</h1>
-    </ion-slide>
-    <ion-slide>
-      <ion-slides #slide2 pager>
-        <ion-slide>
-          <h1>Hello1</h1>
-        </ion-slide>
-        <ion-slide>
-          <h1>Hello2</h1>
-        </ion-slide>
-        <ion-slide>
-          <h1>Hello3</h1>
-        </ion-slide>
-      </ion-slides>
-    </ion-slide>
-    <ion-slide>
-      <h1>The END!</h1>
-    </ion-slide>
-  </ion-slides> -->
-
-
 </ion-content>

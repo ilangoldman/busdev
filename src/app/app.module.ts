@@ -10,6 +10,7 @@ import { SetUpPage } from '../pages/set-up/set-up';
 import { SliderPage } from '../pages/slider/slider';
 import { BlankPage } from '../pages/blank/blank';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { NavigationPage } from '../pages/navigation/navigation';
@@ -31,6 +32,7 @@ import { BD } from '../pages/cards/BD';
     SliderPage,
     BlankPage,
     LoginPage,
+    SignupPage,
     NavigationPage,
     HomePage,
     SettingsPage,
@@ -48,6 +50,7 @@ import { BD } from '../pages/cards/BD';
     SliderPage,
     BlankPage,
     LoginPage,
+    SignupPage,
     NavigationPage,
     HomePage,
     SettingsPage,

@@ -6,12 +6,6 @@ import { NavigationPage } from '../navigation/navigation';
 import { UserProvider } from '../../providers/user/user';
 import { LoginPage } from '../login/login';
 
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-settings',

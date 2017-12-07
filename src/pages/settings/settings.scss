@@ -1,34 +1,37 @@
 
-.outer-content {
+.settings-content {
     background-color: #ffffff;
 }
 
 .user_image {
     position: relative;
-    left: 35vw;
-    top: 2vw;
+    top: 3vw;
     height: 30vw;
     width: 30vw;
     border: 1px solid #333a56;
     border-radius: 50%;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    margin: auto;
 }
 
 .user_name {
-    //position: relative;
-    left: 33vw;
-    //top: 3vw;
-    //font-size: 16;
+    // position: relative;
+    // left: 37vw;
+    // top: 3vw;
+    font-size: 5vw;
+    font-style: bold;
 }
 
-.logo {
-    position: absolute;
-    left: 40vw;
-    bottom: 3vw;
-    height: 20vw;
-    width: 20vw;
-    margin-left: auto;
-    margin-right: auto;
+.settings-logo {
+    position: relative;
+    top: 30vw;
+    margin: auto;
+    display: block;
+    height: 19vw;
+    width: 17vw;
+}
+
+.settings-list {
+    position: relative;
+    top: 5vw;
 }

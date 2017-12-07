@@ -6,16 +6,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="outer-content">
+<ion-content class="settings-content">
   <!-- <h1>Settings Page</h1> -->
 
   <img class="user_image" src="assets/icon/logo.jpg">
+  <button ion-button block clear color="dark" class="user_name">
+     {{user.name}}
+  </button>
 
-  <ion-list>
-    <ion-list-header class="user_name">
-      {{user.name}}
-    </ion-list-header>
-
+  <ion-list class="settings-list">
     <ion-item>
       <!-- <ion-icon name="md-help-circle" item-start color="editor"></ion-icon> -->
       <ion-label>Help</ion-label>
@@ -33,6 +32,6 @@
 
   </ion-list> 
 
-  <img class="logo" src="assets/icon/busdev_blue.png">
+  <img class="settings-logo" src="assets/icon/busdev_blue.png">  
 
 </ion-content>

@@ -1,35 +1,51 @@
-  <ion-content padding center color="client">
-    <img src="assets/icon/busdev_white.png"/>
-    <br>
-    <h1>Welcome to BusDev!</h1>
+<ion-content padding class="login">
+  <div class="login-content">
 
-    <div padding>
-      <form [formGroup]="loginForm" (ngSubmit)="signInWithEmail()">
-        <ion-item>
-          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+    <img class="login-logo" src="assets/icon/busdev_white.png"/>
+    <br>
+    <!-- <h1 class="login-title">Welcome to BusDev!</h1> -->
+
+    <button ion-button block clear color="dark" class="login-title">
+       Welcome to BusDev!
+    </button>
+
+    <div padding class="login-form">
+
+      <button ion-button block color="danger" *ngIf="hasError" (click)="close()">
+        <p ion-text color="dark">{{errorMessage}}</p>
+      </button>
+
+        <ion-item class="login-input-top">
+          <ion-input type="email" placeholder="Email" #email></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-        </ion-item> <br> <br>
-        <button ion-button block outline color="primary" class="signin-button"
-                type="submit">
-          Log In
+        <ion-item class="login-input-bottom">            
+          <ion-input type="password" placeholder="Password" #pwd></ion-input>
+        </ion-item>
+
+
+        <button ion-button block color="editor" class="login-button" (click)="signInWithEmail(email.value,pwd.value)">
+          Log in
         </button>
-      </form>
+
       <!-- <p class="forgot-password" (click)="navigateTo('auth-password')">Forgot Password?</p> -->
-      <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>
-      <br> OR <br>
+      <!-- <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p> -->
+      
+      <button ion-button block clear color="dark" class="login-title inner">
+        OR
+      </button>
+
       <button ion-button block (click)="logInWithFacebook()" color="default" class="facebook-button">
         <ion-icon name="logo-facebook"></ion-icon> &nbsp; Facebook
       </button>
     </div>
-  </ion-content>
+  </div>
+</ion-content>
   
-  <!-- <ion-footer>
+  <ion-footer>
     <ion-toolbar class="footer">
-      <div (click)="navigateTo(SignupPage)">
-        <span>Not a member yet? <strong>Sign In!</strong>.</span>
+      <div (click)="navigateTo('signup')">
+        <span>Not a member yet? <strong>Sign up!</strong></span>
       </div>
     </ion-toolbar>
-  </ion-footer> -->
+  </ion-footer>
   

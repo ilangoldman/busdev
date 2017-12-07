@@ -1,18 +1,54 @@
-<!--
-  Generated template for the SignupPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>signup</ion-title>
-  </ion-navbar>
-
+  <!-- <ion-navbar color="editor">
+    <ion-title>{{this.title}}</ion-title>
+  </ion-navbar> -->
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="signup">
+  <div class="signup-content">
+  <!-- <h1>Settings Page</h1> -->
 
+    <img class="signup-image" src="assets/icon/logo.jpg">
+  
+    <div padding class="signup-form">
+      <ion-item class="signup-input-top signup-input-bottom">
+        <ion-input type="text" placeholder="Name" #name></ion-input>
+      </ion-item>
+
+      <ion-item class="signup-input-top signup-input-bottom">
+        <ion-input type="email" placeholder="Email" #email></ion-input>
+      </ion-item>
+
+      <ion-item class="signup-input-top">
+        <ion-input type="password" placeholder="Password" #pwd></ion-input>
+      </ion-item>
+      <ion-item class="signup-input-bottom">
+        <ion-input type="password" placeholder="Repeat Password" #pwd2></ion-input>
+      </ion-item>
+
+      <!-- <p class="forgot-password" (click)="navigateTo('auth-password')">Forgot Password?</p> -->
+      <p ion-text color="danger" *ngIf="hasError" class="error">{{errorMessage}}</p>
+
+      <button ion-button block color="editor" class="signup-button" (click)="signUpWithEmail()">
+        Sign up
+      </button>
+
+
+
+    </div>
+
+    <img class="signup-logo" src="assets/icon/busdev_white.png">
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer">
+    <div (click)="navigateTo('login')">
+      <span>Already a member?
+        <strong>Log in!</strong>
+      </span>
+    </div>
+  </ion-toolbar>
+</ion-footer>

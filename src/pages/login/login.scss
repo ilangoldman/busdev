@@ -1,3 +1,57 @@
-page-login {
 
+.login {
+    background-color: #0070ff;
+}
+
+.login-content {
+    position: relative;
+    top: 20vw;
+}
+
+.login-logo {
+    margin: auto;
+    display: block;
+    height: 19vw;
+    width: 17vw;
+}
+
+.login-title {
+    font-size: 6vw;
+    font-weight: bold;
+    color: white;
+}
+
+.inner {
+    font-size: 4vw;
+    font-weight: bold;
+    
+}
+
+.login-form {
+    margin: 4vw 10vw;
+    font-size: 4vw;
+}
+
+.error {
+    border: 1vw solid #f53d3d;
+}
+
+.login-input-top {
+    border-top-right-radius: 2vw;
+    border-top-left-radius: 2vw;
+}
+
+.login-input-bottom {
+    border-bottom-right-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    margin-bottom: 10vw;
+}
+
+.facebook-button, .login-input-top, .login-input-bottom, .login-button { 
+     font-size: 4vw;
+}
+
+.footer {
+    margin: auto auto;
+    font-size: 4vw;
 }
