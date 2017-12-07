@@ -1,0 +1,24 @@
+<!-- <ion-header>
+  <ion-navbar color="editor">
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+  <h2 class="setup-title">Choose your Navigation</h2>
+  <br>
+  <br>
+  <ion-row>
+    <ion-col color="primary" (click)="setNav('tabs')">
+      <ion-icon class="setup-icon" name="ios-browsers"></ion-icon>
+      <p class="setup-text">Tabs</p>
+    </ion-col>
+    <ion-col (click)="setNav('side-menu')">
+      <ion-icon class="setup-icon" name="ios-menu-outline"></ion-icon>
+      <p class="setup-text">Side Menu</p>
+    </ion-col>
+    <ion-col (click)="setNav('blank')">
+      <ion-icon class="setup-icon" name="ios-document"></ion-icon>
+      <p class="setup-text">Single Page</p>
+    </ion-col>
+  </ion-row>

@@ -1,6 +1,6 @@
 
 <ion-content class="setup-content">
-  <ion-slides pager>
+  <ion-slides #setupSlider pager>
 
     <ion-slide>
       <img src="assets/icon/logo.jpg" />
@@ -9,7 +9,8 @@
     </ion-slide>
 
     <ion-slide>
-      <h2 class="setup-title">Choose your Navigation</h2>
+      <set-navigation [parentSlider]="setupSlider" ></set-navigation>
+      <!-- <h2 class="setup-title">Choose your Navigation</h2>
       <br><br>
       <ion-row>
         <ion-col color="primary" (click)="setNav('tabs')">
@@ -24,7 +25,7 @@
           <ion-icon class="setup-icon" name="ios-document"></ion-icon>
           <p class="setup-text">Single Page</p>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
     </ion-slide>
 
     <ion-slide>

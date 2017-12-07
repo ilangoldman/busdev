@@ -3,6 +3,8 @@ import { NavController, ModalController, NavParams } from 'ionic-angular';
 
 import { SettingsPage } from '../settings/settings';
 import { BlankPage } from '../blank/blank';
+import { SetNavContainerPage } from '../set-navigation/set-navigation';
+
 
 import { UserProvider } from '../../providers/user/user';
 
@@ -30,10 +32,13 @@ export class NavigationPage {
   }
 
   navigateTo(page:string) {
-    if (page == 'settings') {
-      
-      this.navCtrl.push(SettingsPage,this);
-      // this.titleClass = 'editor';      
+    switch (page) {
+      case 'settings':
+        this.navCtrl.push(SettingsPage);
+        break;
+      case 'setNavigation':
+        this.navCtrl.push(SetNavContainerPage);
+        break;
     }
   }
 

@@ -4,9 +4,10 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { AuthProvider } from '../../providers/auth/auth';
 import { UserProvider } from '../../providers/user/user';
-import { CardsPage } from '../cards/cards';
+
 import { SetUpPage } from '../set-up/set-up';
 import { SignupPage } from '../signup/signup';
+import { BlankPage } from '../blank/blank';
 
 @Component({
   selector: 'page-login',
@@ -41,7 +42,7 @@ export class LoginPage {
           if (!this.user.setUpComplete)
             this.navCtrl.setRoot(SetUpPage);
           else        
-            this.navCtrl.setRoot(CardsPage);
+            this.navCtrl.setRoot(BlankPage);
       }).catch((error) => {
           console.log(error);
       });
@@ -51,9 +52,9 @@ export class LoginPage {
       this.auth.loginEmail(email,pwd)
           .then(() => {
             if (!this.user.setUpComplete)
-            this.navCtrl.setRoot(SetUpPage);
-          else        
-            this.navCtrl.setRoot(CardsPage);
+              this.navCtrl.setRoot(SetUpPage);
+            else        
+              this.navCtrl.setRoot(BlankPage);
           }).catch((error) => {
             this.errorMessage = error;
             this.hasError = true;

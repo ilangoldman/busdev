@@ -6,11 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
 // Debug
-import { HomePage } from '../pages/home/home';
 import { SetUpPage } from '../pages/set-up/set-up';
 import { NavigationPage } from '../pages/navigation/navigation';
 import { BlankPage } from '../pages/blank/blank';
-
 
 
 @Component({
