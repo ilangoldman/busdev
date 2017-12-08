@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
 // Debug
-import { SetUpPage } from '../pages/set-up/set-up';
+import { TabsPage } from '../pages/tabs/tabs';
 import { NavigationPage } from '../pages/navigation/navigation';
 import { BlankPage } from '../pages/blank/blank';
 

@@ -1,0 +1,32 @@
+<ion-tabs #userTabs>
+  <ion-tab *ngFor="let t of tabsPages" tabIcon="{{t.icon}}" tabTitle="{{t.title}}" [root]="rootPage" (click)="open()"></ion-tab>
+
+  <ion-fab item-end bottom right #fab *ngIf="this.user.editor">
+    <button mini ion-fab color="editor" clear>
+      <ion-icon name="ios-arrow-up"></ion-icon>
+    </button>
+  
+    <ion-fab-list side="top">
+  
+      <button mini ion-button color="danger" (click)="deleteItem(i,fab)">
+        <ion-icon name="ios-trash"></ion-icon>
+        <!-- Delete -->
+      </button>
+  
+      <button mini ion-button color="editor" (click)="moveItem('',fab)">
+        <ion-icon name="ios-apps"></ion-icon>
+        <!-- Move -->
+      </button>
+  
+      <button mini ion-button color="editor" (click)="newItem(fab,i,'up')">
+        <ion-icon name="ios-arrow-round-back"></ion-icon>
+      </button>
+  
+      <button mini ion-button color="editor" (click)="newItem(fab,i,'down')">
+        <ion-icon name="ios-arrow-round-forward"></ion-icon>
+        <!-- New Down -->
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-tabs>

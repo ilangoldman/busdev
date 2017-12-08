@@ -1,6 +1,11 @@
 .popoverIcon {
-    font-size: 50px;
+    font-size: 15vw;
     text-align: center;
     border-radius: 90%;
-    margin: 10px auto;
+    margin: auto;
+    display: inline-block;
+}
+
+.new-item-popover {
+    margin: auto;
 }

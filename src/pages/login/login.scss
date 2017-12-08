@@ -19,6 +19,7 @@
     font-size: 6vw;
     font-weight: bold;
     color: white;
+    text-transform: none;
 }
 
 .inner {
@@ -47,11 +48,28 @@
     margin-bottom: 10vw;
 }
 
-.facebook-button, .login-input-top, .login-input-bottom, .login-button { 
+.login-input-top, .login-input-bottom, .login-button { 
      font-size: 4vw;
 }
 
 .footer {
     margin: auto auto;
     font-size: 4vw;
+}
+
+.facebook-button, .googleplus-button {
+    margin: auto 10vw;
+    display: inline-block;
+    height: 10vw;
+    width: 10vw;
+}
+
+.facebook-button {
+    position: relative;
+    left: 3vw;
+}
+
+.googleplus-button {
+    position: relative;
+    right: 3vw;
 }

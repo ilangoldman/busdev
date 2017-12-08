@@ -13,6 +13,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { NavigationPage } from '../pages/navigation/navigation';
 import { SetNavigationPage, SetNavContainerPage } from '../pages/set-navigation/set-navigation';
 import { NewItemPopoverPage } from '../pages/new-item-popover/new-item-popover';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { UserProvider } from '../providers/user/user';
@@ -31,7 +32,8 @@ import { NavController } from 'ionic-angular';
     SetNavigationPage,
     SetNavContainerPage,
     SettingsPage,
-    NewItemPopoverPage
+    NewItemPopoverPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { NavController } from 'ionic-angular';
     SetNavigationPage,
     SetNavContainerPage,
     SettingsPage,
-    NewItemPopoverPage
+    NewItemPopoverPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

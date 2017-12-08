@@ -22,6 +22,7 @@
             *ngIf="getItemType(item.type,'label') && this.user.editor" 
             value="{{item.text}}"
             (input)="editItem(i,labelInput.value)"
+            class="label-textarea"
           ></ion-textarea>
 
           <!-- button -->

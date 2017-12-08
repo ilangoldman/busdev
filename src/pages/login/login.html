@@ -34,9 +34,14 @@
         OR
       </button>
 
-      <button ion-button block (click)="logInWithFacebook()" color="default" class="facebook-button">
-        <ion-icon name="logo-facebook"></ion-icon> &nbsp; Facebook
+      <button ion-button icon-only block (click)="logInWithFacebook()" color="default" class="facebook-button">
+        <ion-icon name="logo-facebook"></ion-icon>
       </button>
+
+      <button ion-button block (click)="logInWithFacebook()" color="danger" class="googleplus-button">
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </button>
+      
     </div>
   </div>
 </ion-content>

@@ -39,7 +39,6 @@ export class BlankPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    private formBuilder: FormBuilder,
     public user: UserProvider,
     private popoverCtrl: PopoverController
   ) {
@@ -53,8 +52,8 @@ export class BlankPage {
 
   getItemType(type,item,pos?):boolean {
     if (pos != null) {
-      console.log("getItem: " + this.pageItems[pos].text);
-      console.log("getItem2: " +type+"|"+item+"|"+ (type == item));
+      // console.log("getItem: " + this.pageItems[pos].text);
+      // console.log("getItem2: " +type+"|"+item+"|"+ (type == item));
       
     }
     return (type==item);
