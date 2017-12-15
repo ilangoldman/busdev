@@ -2,5 +2,11 @@
   "name": "BusDev",
   "app_id": "4eb86d9d",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {},
+  "proxies" : [
+    {
+      "path": "/ilangoldman/Sites",
+      "proxyUrl": "http://localhost"
+    }
+  ]
 }

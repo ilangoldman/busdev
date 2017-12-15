@@ -11,6 +11,10 @@ import { NewItemPopoverPage } from '../new-item-popover/new-item-popover';
 
 import { mockBD } from './BD'; 
 
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+
 @Component({
   selector: 'page-blank',
   templateUrl: 'blank.html',
@@ -40,7 +44,8 @@ export class BlankPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public user: UserProvider,
-    private popoverCtrl: PopoverController
+    private popoverCtrl: PopoverController,
+    private http: Http
   ) {
     this.pageItems = mockBD;
     // this.form = this.formBuilder.group({

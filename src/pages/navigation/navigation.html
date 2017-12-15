@@ -4,7 +4,7 @@
       <button ion-button icon-only color="royal" (click)="navigateTo('settings')">
         <ion-icon name="settings"></ion-icon>
       </button>
-      <button ion-button icon-only color="royal" (click)="navigateTo('setNavigation')">
+      <button ion-button *ngIf="user.isAdmin" icon-only color="royal" (click)="navigateTo('setNavigation')">
         <ion-icon name="md-navigate"></ion-icon>
       </button>
     </ion-buttons>

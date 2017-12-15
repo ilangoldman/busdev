@@ -34,7 +34,7 @@
           </button> -->
 
           <!-- Button Item -->
-          <ion-card *ngIf="getItemType(item.type,'button') && !this.user.editor" color="{{item.color}}">
+          <ion-card *ngIf="getItemType(item.type,'button')" color="{{item.color}}">
             <ion-card-content>
                 {{item.text}}
             </ion-card-content>
@@ -76,10 +76,10 @@
                 <!-- New Down -->
               </button>
 
-              <!-- <button mini ion-button color="editor" (click)="fabAction('replace',fab)">
+              <button mini ion-button color="editor">
                 <ion-icon name="ios-swap"></ion-icon>
-                Replace
-              </button> -->
+                <!-- Replace -->
+              </button>
             </ion-fab-list>
           </ion-fab>
 

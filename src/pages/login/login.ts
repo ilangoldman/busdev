@@ -14,26 +14,16 @@ import { BlankPage } from '../blank/blank';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  loginForm : FormGroup;
   hasError: boolean;
   errorMessage: string;
 
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      private formBuilder: FormBuilder,
       private auth: AuthProvider,
       private user: UserProvider
   ) {
-      this.loginForm = this.formBuilder.group({
-          email: ['', Validators.required],
-          password: ['', Validators.required]
-      });
-      
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
   }
 
   logInWithFacebook() {
@@ -51,10 +41,16 @@ export class LoginPage {
   signInWithEmail(email,pwd) {
       this.auth.loginEmail(email,pwd)
           .then(() => {
-            if (!this.user.setUpComplete)
-              this.navCtrl.setRoot(SetUpPage);
-            else        
-              this.navCtrl.setRoot(BlankPage);
+            this.user.login()
+            .then(() => {
+              if (this.user.isAdmin && !this.user.setUpComplete)
+                this.navCtrl.setRoot(SetUpPage);
+              else
+                this.navCtrl.setRoot(BlankPage);
+            }).catch((error) => {
+              this.errorMessage = error;
+              this.hasError = true;
+            });
           }).catch((error) => {
             this.errorMessage = error;
             this.hasError = true;
